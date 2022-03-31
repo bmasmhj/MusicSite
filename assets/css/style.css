@@ -1,0 +1,223 @@
+
+.custom-form-control {
+    display: block;
+    width: 100%;
+    padding: 0.45rem 0.9rem;
+    font-size: .9rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #e3eaef;
+    background-color: transparent!important;
+    background-clip: padding-box;
+    border-bottom: 1px solid #8f8f8f!important;
+    border : none;
+}
+.headingtag{
+    width: 100%;
+    line-height: 25px;
+    border-left: solid 4px rgba(255,255,255,.2);
+    padding-left: 10px;
+}
+.custom-badge {
+    display: inline-block;
+    padding: .95em 0.4em;
+    width: 100%;
+    font-size: .55em;
+    font-weight: 700;
+    line-height: 1;
+    color: #fff;
+    background-color: #111111;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    border-radius: 0.25rem;
+}
+input[type="text"]:focus{
+outline:none!important;
+}
+.input-text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 0.45rem 0.9rem;
+    font-size: .9rem;
+    font-weight: 400;
+    line-height: 1.5;
+    background-color: transparent!important;
+    background-clip: padding-box;
+    border : none;
+
+    border-bottom: 1px solid #8f8f8f!important;
+    color: #e3eaef;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.custom-card {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+
+    border-left: 1px solid #4d5662;
+    border-right: 1px solid #4d5662;
+
+}
+
+.musicimg{
+    border-radius: 12px;
+}
+.genre-list {
+    height: 400px;
+    overflow: auto;
+    scrollbar-width: thin;
+    padding: 8px;
+  }
+  
+  /* Works on Chrome, Edge, and Safari */
+  .genre-list::-webkit-scrollbar {
+    width: 3px;
+  }
+  
+  .genre-list::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .genre-list::-webkit-scrollbar-thumb {
+    background-color: rgb(41, 41, 41);
+    border-radius: 20px;
+    border: 3px solid rgb(158, 158, 158);
+  }
+
+.genre-list p {
+    padding: 8px;
+    font-size: 18px;
+    border-bottom: 1px solid #8f8f8f;
+
+}
+.smt{
+    font-size: 12px;
+}
+.items{
+    width: 100%;
+}
+.item{
+    position: relative;
+    float: left;
+    padding: 8px;
+    border-radius: 12px;
+}
+.iteam{
+    width: calc(100%/5);
+    position: relative;
+    float: left;
+    padding: 12px;
+    border-radius: 12px;
+    margin-top: 8px;
+    border: 1px solid #4d566200;
+
+}
+.fix-top {
+    position: fixed!important;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.iteam:hover{
+    cursor: pointer;
+    height: auto;
+    border: 1px solid #6237ff75;
+    background-color: #6237ff10;
+
+}
+.iteam img:hover{
+    box-shadow: 0px 0px 16px 0px #6237ffaf;
+
+}
+.iteam img{
+    height: 220px;
+    object-fit: cover;
+}
+.item:hover{
+    cursor: pointer;
+    /* border: 1px solid #4d5662; */
+    border: 1px solid #6237ff75;
+
+    
+}
+.border-right{
+    border-right: 1px solid #4d5662;
+
+
+}
+.item img{
+    height: 220px;
+    object-fit: cover;
+}
+.smallimg{
+    height: 100px;
+    object-fit: cover;
+}
+.latestsmall{
+    background-color: #111111;
+}
+.latestsmall:hover{
+    background-color: #242525;
+}
+.releasedate{
+    height: 210px!important;
+    overflow: auto;
+    list-style: none;
+    padding: 5px;
+}
+.releasedate li {
+
+    float: left;
+    width: calc(100%/3);
+    padding: 3px;
+}
+.releasedate li a{
+    background: rgba(0,0,0,.3);
+    color: rgba(255,255,255,.5);
+    float: left;
+    width: 100%;
+    padding: 8px 0;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+}
+.releasedate li a:hover{
+    color: rgb(0, 0, 0);
+    background: rgba(255, 255, 255, 0.753);
+
+}
+
+.releasedate {
+    scrollbar-width: thin;
+  }
+  
+  /* Works on Chrome, Edge, and Safari */
+  .releasedate::-webkit-scrollbar {
+    width: 3px;
+  }
+  
+  .releasedate::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .releasedate::-webkit-scrollbar-thumb {
+    background-color: rgb(41, 41, 41);
+    border-radius: 20px;
+    border: 3px solid rgb(158, 158, 158);
+  }
