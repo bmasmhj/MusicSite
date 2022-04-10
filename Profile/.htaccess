@@ -1,0 +1,33 @@
+
+
+
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteCond %{REQUEST_FILENAME}\.html -f
+
+RewriteRule ^(.*)$ $1.html [NC,L]
+RewriteRule ^Home  index.php [NC,L]
+RewriteRule ^EditProfile  editprofile.php [NC,L]
+RewriteRule ^BillingAddress  editbilling.php [NC,L]
+RewriteRule ^Login  login-user.php [NC,L]
+RewriteRule ^ForgotPassword  forgot-password.php [NC,L]
+RewriteRule ^NewPasssword  new-password.php [NC,L]
+RewriteRule ^PasswordChanged  password-changed.php [NC,L]
+RewriteRule ^ResetCode  reset-code.php [NC,L]
+RewriteRule ^SignupUser  signup-user.php [NC,L]
+RewriteRule ^UserOTP  user-otp.php [NC,L]
+
+
+
+
+
+
+
+
+RewriteRule ^400  400.html [NC,L]
+RewriteRule ^401  401.html [NC,L]
+RewriteRule ^403  403.html [NC,L]
+RewriteRule ^404  404.html [NC,L]
+RewriteRule ^503  503.html [NC,L]
