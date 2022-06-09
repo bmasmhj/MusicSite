@@ -12,6 +12,8 @@ RewriteRule ^Home  index.php [NC,L]
 RewriteRule ^EditProfile  editprofile.php [NC,L]
 RewriteRule ^BillingAddress  editbilling.php [NC,L]
 RewriteRule ^Login  login-user.php [NC,L]
+RewriteRule ^Logout  logout-user.php [NC,L]
+
 RewriteRule ^ForgotPassword  forgot-password.php [NC,L]
 RewriteRule ^NewPasssword  new-password.php [NC,L]
 RewriteRule ^PasswordChanged  password-changed.php [NC,L]

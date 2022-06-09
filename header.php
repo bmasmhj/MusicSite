@@ -1,4 +1,4 @@
-<?php require 'controller/infofetcher.php' ?>
+<?php require 'backends/infofetcher.php' ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,4 +15,4 @@
 </head>
 <body >
 
-<?php require 'model/topbar.php' ?>
+<?php require 'bodyparts/topbar.php' ?>

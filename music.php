@@ -35,8 +35,9 @@ if(!isset($_GET['c'])){
                                     <div class="music-content">
                                        <h4><?php echo $cresultdataval['title']?><small class="float-end">Released : <?php echo $cresultdataval['releasedate']?></small> </h4> <hr class="m-1">
                                        <span><?php echo $cresultdataval['artist']?> <small class="float-end">Duration : <?php echo number_format((float)$cresultdataval['duration']/60 , 2 ,':','')?> min</small> </span>
-                                       <div class="my-rating-5"></div> 
-                                       <span>2.5/5</span>
+                                       <div class="my-rating"></div> 
+                                       
+                                       <span><?php echo  round($totalratingmusic,1)  ?>/5.0</span>
                                        <br>
                                        <?php require 'musicplayer.php' ?>
                                       <h4 class="text-center">Preview</h4>
@@ -46,7 +47,7 @@ if(!isset($_GET['c'])){
                             
                         </div>
                     </div>
-                   <?php require 'model/gnre.php' ?>
+                   <?php require 'bodyparts/gnre.php' ?>
 
                     <?php  if ($similarresult->num_rows > 1) { ?>
                         <header>
@@ -67,13 +68,8 @@ if(!isset($_GET['c'])){
                         <?php } } ?>  
                         </div>
                             <?php } 
-                        if(isset($_SESSION['musicusername'])){
-                                $user='phil';
-                                require 'model/recommendation.php' ;
-                            }
-                            else {
-                                require 'model/featured.php' ;
-                        }
+                       //recomendationhere
+                        
                             ?>
                         </div>
                 <?php } } ?>
@@ -83,7 +79,7 @@ if(!isset($_GET['c'])){
         </div>
     </div>
 
-    <?php require 'model/modalbox.php' ?>
+    <?php require 'bodyparts/modalbox.php' ?>
 
 
 <?php require 'footer.php' ?>
@@ -91,13 +87,15 @@ if(!isset($_GET['c'])){
 <script src='assets/js/jquery.star-rating-svg.min.js'></script>
 <script src='assets/js/jquery.star-rating-svg.js'></script>
 <script>
-    $(".my-rating-5").starRating({
+    var inirate = <?php echo  $totalratingmusic  ?>;
+    var c = "<?php echo $_GET['c'] ?>";
+
+    $(".my-rating").starRating({
     starSize: 20,
-    initialRating: 2.5,
+    initialRating: inirate,
 	readOnly: true
     });
     $('#showratingstars').click(function(){
-    var c = "<?php echo $_GET['c'] ?>";
 
         $.ajax({
             url: "rating.php",
@@ -115,13 +113,17 @@ if(!isset($_GET['c'])){
         var comment = $('#commentval').val();
         if(comment !=''){
             $.ajax({
-                url: "controller/add.php",
+                url: "backends/add.php",
                 type: "POST",
                 data: { "addcomment" : 'true',
                         "id" : c,
                         "coment" : comment },
                 success:function(response){
-                alert(response);         
+                    commentdata();    
+                    $('#commentval').val('');  
+                    var cmnt = $('#totalcomment').text();
+                    var now = parseInt(cmnt) + 1;
+                    $('#totalcomment').html(now);
                 }
             });
         }else{
@@ -134,6 +136,37 @@ if(!isset($_GET['c'])){
     })
 
 
+    function commentdata(){
+        $.ajax({
+            url: "bodyparts/commentdata.php",
+            type: "POST",
+            data: { "comments" : "true" , "c" : c },
+            success:function(response){
+                $('#commentdata').html(response);   
+
+            }
+        });
+    }
+    
+    function deletecomment(id){
+    $.ajax({
+        url: "backends/delete.php",
+        type: "POST",
+        data: { 'deletecomment' : id , "c":c},
+        success:function(response){
+        // alert(response);
+        var result = $.trim(response);
+        if(result == 'deleted'){
+            document.getElementById('tr_coment_'+id).style.display = 'none';
+            var cmnt = $('#totalcomment').text();
+                    var now = parseInt(cmnt) - 1;
+                    $('#totalcomment').html(now);
+        }else{
+            alert(response);
+        }
+        }
+    });
+}
 
 </script>
 <script> commentdata(); </script>

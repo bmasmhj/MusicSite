@@ -1,62 +1,47 @@
 <?php require_once "controllerUserData.php"; 
  require 'checker.php';
-  require 'header.php'; require 'sidebar.php' ?>
+  require 'header.php';?>
                
 
-<div class="container text-black">
-    <div class="row d-flex">
-        <h4 style="flex-grow:1">Previous Orders</h4>  
-        <a href="../Cart" class="nav-link">Cart <span class="icon-shopping_cart"></span>[<span id="cartdatatotal"><?php echo $carttotaldata ?></span>]</a>
-        </div>
-        <div class="col-md-12">
-            <div class="table-resposive table mt-2" style='    max-height: 340px!important;
-    overflow: auto;
-    overflow-x: hidden;'>
-                <table class="table datatable my-0">
-                    <thead>
-                    <tr>
-                        <th>Order#</th>
-                        <th>Placed On</th>
-                        <th>Item Name</th>
-                        <th>Total</th>
-                        <th>Status</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody class="text-black">
-                    <?php foreach($orderdata as $key => $orederal){
-                        if($orederal['status'] != 'deleted') {
-                        echo '
-                            <tr id="order_row_'.$orederal["id"].'">
-                                <td>'.$orederal["invoice"].'</td>
-                                <td>'.$orederal["date"].'</td>
-                                <td>'.$orederal["productname"].'</td>
-                                <td>Rs.'.$orederal["total"].'</td>
-                                <td id="status_'.$orederal["id"].'">'.$orederal["status"].'</td>';
+<nav class="navbar container">
+  <a class="navbar-brand text-dark" href="../">Company Name</a>
+  <button type="button" class="btn btn-light text-dark"><a href="logout-user.php" class="text-dark">Logout</a></button>
+</nav>
+        
+<div class="container text-black mt-5">
 
-                                if($orederal['status'] == 'canceled'){
-                                    echo' <td><a href="javascript:deleteorder('.$orederal["id"].')"> Delete</a> </td>';
-
-                                }else{
-                                    echo' <td><a href="javascript:cancelorder('.$orederal["id"].')"> Cancel</a> </td>';
-
-                                }
-                                echo'
-                            </tr>
-                        ';
-                    }
-                }
-                    
-                    ?>
-                    
-                   
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        </div>
-
+  <div class="row">
+    <div class="card">
+      <div class="card-body">
+        <h3>Welcome , <?php echo $fetch_info['name'] ?></h3>
+      </div>
     </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 mb-2 mb-sm-0">
+      <?php require 'sidenav.php'?>  
+    </div> 
+
+    <div class="col-md-9">
+        <div class="card">
+          <div class="card-body">
+            <div class="tab-content" id="v-pills-tabContent" style='height:400px!important'>
+             <?php require 'editprofile.php'; require 'myratings.php'; require 'mycomments.php';?>
+          </div>
+          </div>
+        </div>
+    </div> 
+  </div>
+  <div class="row">
+    <div class="card">
+      <div class="card-body">
+        <h4>Recommendation</h4>
+        <!-- recomedation  -->
+        
+      </div>
+    </div>
+  </div>
 </div>
 
          

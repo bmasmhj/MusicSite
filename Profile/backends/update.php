@@ -5,7 +5,7 @@ if(isset($_POST['o']) && isset($_POST['n']) && isset($_POST['c'])){
     $old = $_POST['o'];
     $new = $_POST['n'];
     session_start();
-    $email = $_SESSION['lpmsemail'] ;
+    $email = $_SESSION['musicusername'] ;
     $password = $old;
     $chewckuser = "SELECT * FROM usertable WHERE email = '$email'";
         $res = mysqli_query($con, $chewckuser);
@@ -27,31 +27,18 @@ if(isset($_POST['o']) && isset($_POST['n']) && isset($_POST['c'])){
 
         }
 
-}else if(isset($_POST['updatelmpsname'])){
+}else if(isset($_POST['updatemusicname'])){
     session_start();
-    $email = $_SESSION['lpmsemail'] ;
+    $email = $_SESSION['musicusername'] ;
 
     $name = $_POST['fullname'];
     $sql = "UPDATE usertable SET name = '$name' WHERE email = '$email' ";
     if ($con->query($sql)) {
-        header('Location: ../EditProfile');
+        header('Location: ../');
         exit();
     }
 
 }
-else if(isset($_POST['provience']) && isset($_POST['district'])){
-    session_start();
-    $did = $_POST['district'];
-    $pid = $_POST['provience'];
-    $street =  $_POST['street'];
-    $num = $_POST['number'];
-    $email = $_SESSION['lpmsemail'] ;
-    $sql = "UPDATE usertable SET  `provience` = '$pid', `district` = '$did' ,`address`='$street', `num` = '$num'  WHERE email = '$email' ";
-    if ($con->query($sql)) {
-        header('Location: ../BillingAddress');
-        exit();
-    }
 
-}
 
 ?>

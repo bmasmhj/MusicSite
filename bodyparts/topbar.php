@@ -29,19 +29,19 @@
                         <a class="nav-link dropdown-toggle nav-user arrow-none me-0" data-bs-toggle="dropdown" id="topbar-userdrop" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     
                             <span>
-                                <span class="account-user-name">John Doe</span>
-                                <span class="account-position">music@gmail.com</span>
+                                <span class="account-user-name"><?php echo $fetch_info['name']?></span>
+                                <span class="account-position"><?php echo $fetch_info['email']?></span>
                             </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-animated topbar-dropdown-menu profile-dropdown" aria-labelledby="topbar-userdrop">
         
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <a  href="Profile" class="dropdown-item notify-item">
                                 <i class="mdi mdi-account-circle me-1"></i>
                                 <span>My Account</span>
                             </a>
                             <!-- item-->
-                            <a href="javascript:void(0);" class="dropdown-item notify-item">
+                            <a  href="Profile/Logout" class="dropdown-item notify-item">
                                 <i class="mdi mdi-logout me-1"></i>
                                 <span>Logout</span>
                             </a>
@@ -59,8 +59,8 @@
                     <?php } ?>
                 </ul>
             
-            <?php require 'model/search.php' ?>
-                <div class="app-search mx-3">
+            <?php require 'bodyparts/search.php' ?>
+                <!-- <div class="app-search mx-3">
                     <nav class="navbar navbar-dark navbar-expand-lg topnav-menu">
                         <div class="navbar-collapse active collapse" id="topnav-menu-content">
                             <ul class="navbar-nav">
@@ -87,7 +87,7 @@
                             </ul>
                         </div>
                     </nav>
-                </div>
+                </div> -->
                 
             </div>
         </div>

@@ -45,7 +45,7 @@ if(scren > 963) {
         $('#searchkley').html(inpdat);
 
         $.ajax({
-            url: "model/searchdata.php",
+            url: "bodyparts/searchdata.php",
             type: "POST",
             data: { "searchkey" : inpdat },
             success:function(response){
@@ -54,16 +54,7 @@ if(scren > 963) {
         });
     });
 
-    function commentdata(){
-        $.ajax({
-            url: "model/commentdata.php",
-            type: "POST",
-            data: { "comments" : "true" },
-            success:function(response){
-                $('#commentdata').html(response);                
-            }
-        });
-    }
+    
 
 
 

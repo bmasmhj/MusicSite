@@ -58,7 +58,14 @@ if(isset($_GET['c'])){
     while ($cresultrow = $cresultresult->fetch_assoc()) {
         array_push($cresultdata, $cresultrow);
         $artist = $cresultrow['artist'];
+        $a =  (int)$cresultrow['rating'];
+        $b = (int)$cresultrow['ratingcount'];
 
+        if($a == 0 || $b == 0){
+            $totalratingmusic = 0;
+        }else {
+            $totalratingmusic = $a/$b ;
+        }
     }
     }else{
         $error = 'true';
@@ -71,14 +78,19 @@ if(isset($_GET['c'])){
         while ($similarrow = $similarresult->fetch_assoc()) {
             array_push($similardata, $similarrow);
         }
-    } 
+    }
+    
+    
+    
+
+    
 
 
 }
 
 if(isset($_GET['t'])){
     $code = $_GET['t'];
-    $tresultsql = "SELECT  * FROM music WHERE (genre LIKE '%$code%') OR (releasedate = '$code' )";
+    $tresultsql = "SELECT  * FROM music WHERE (artist LIKE '%$code%') OR (album LIKE '%$code%') OR (title LIKE '%$code%') OR  (genre LIKE '%$code%') OR (releasedate = '$code' ) OR (contributor LIKE '%$code%') ";
     $tresultresult = $con->query($tresultsql);
     $tresultdata = [];
     if ($tresultresult->num_rows > 0) {
@@ -89,6 +101,32 @@ if(isset($_GET['t'])){
         $error = 'true';
     } 
 
+}
+
+if(isset($_SESSION['musicusername'])){
+    $email = $_SESSION['musicusername'];
+$password = $_SESSION['password'];
+if($email != false && $password != false){
+    $sql = "SELECT * FROM `usertable`
+        
+    WHERE email = '$email'";
+    $run_Sql = mysqli_query($con, $sql);
+    if($run_Sql){
+        $fetch_info = mysqli_fetch_assoc($run_Sql);
+        $status = $fetch_info['status'];
+        $code = $fetch_info['code'];
+        if($status == "verified"){
+            if($code != 0){
+                header('Location: ResetCode');
+            }
+        }else{
+            header('Location: UserOTP');
+        }
+    }
+}else{
+    header('Location: Login');
+} 
+ 
 }
 
 

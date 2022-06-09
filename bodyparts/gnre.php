@@ -15,7 +15,7 @@
     <li class="nav-item">
         <a href="#comments" data-bs-toggle="tab" aria-expanded="true" class="nav-link ">
             <i class="mdi mdi-account-circle d-md-none d-block"></i>
-            <span class="d-none d-md-block">Comments(<?php echo $cresultdataval['comments'] ?>)</span>
+            <span class="d-none d-md-block">Comments(<span id='totalcomment'><?php echo $cresultdataval['comments'] ?></span>)</span>
 
         </a>
     </li>

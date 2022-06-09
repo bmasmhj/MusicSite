@@ -40,33 +40,36 @@ $('#confpw').keyup(function(){
     }
 });
 
-function deleteorder(id){
+
+function deletecomment(id,c){
     $.ajax({
-        url: "controller/delete.php",
+        url: "backends/delete.php",
         type: "POST",
-        data: { 'deleteorder' : id },
+        data: { 'deletecomment' : id , "c":c},
         success:function(response){
         // alert(response);
         var result = $.trim(response);
-
         if(result == 'deleted'){
-            document.getElementById('order_row_'+id).style.display = 'none';
+            document.getElementById('tr_coment_'+id).style.display = 'none';
+        }else{
+            alert(response);
         }
         }
     });
 }
 
-function cancelorder(id){
+function deleterating(id,c,r){
     $.ajax({
-        url: "controller/delete.php",
+        url: "backends/delete.php",
         type: "POST",
-        data: { 'cancelorder' : id },
+        data: { 'deleterating' : id , "c":c ,"rating":r},
         success:function(response){
         // alert(response);
         var result = $.trim(response);
-
-        if(result == 'cancel'){
-            $('#status_'+id).html('canceled')
+        if(result == 'deleted'){
+            document.getElementById('tr_rating_'+id).style.display = 'none';
+        }else{
+            alert(response);
         }
         }
     });
@@ -78,7 +81,7 @@ $('#changeuserpw').click(function(){
     var c = $('#confpw').val();
     if( n != '' && c != '' && o !=''){
         $.ajax({
-            url: "controller/update.php",
+            url: "backends/update.php",
             type: "POST",
             data: { 'o':o , 'n' : n, 'c':c},
             success:function(response){

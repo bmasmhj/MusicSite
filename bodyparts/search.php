@@ -1,7 +1,7 @@
 <div class="app-search dropdown">
-    <form>
+    <form action='Resu'>
         <div class="d-flex">
-            <input type="text" class="custom-form-control" placeholder="Search..." id="top-search">                            
+            <input type="text" name='t' class="custom-form-control" placeholder="Search..." id="top-search">                            
             <button class="input-text" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
     </form>

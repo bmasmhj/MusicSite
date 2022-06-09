@@ -51,6 +51,11 @@
 //     }
 // }
 
+// $sql = "UPDATE `music` SET `rating`='0' , `ratingcount`='0' ,`comments` = '0' ";
+
+// if($con->query($sql)){
+//     echo 'success';
+// }
 // for($i=0 ; $i<207;$i++){
 //     echo $i.'<br>';
 //     $musicsql = "SELECT  * FROM music WHERE id = $i ";
@@ -60,21 +65,24 @@
 //         while ($musicrow = $musicresult->fetch_assoc()) {
 //             $j = rand(9,25);
 //             $musiccode = $musicrow['musiccode'];
-         
+//             $rating = (int)$musicrow['rating'];
 //                 $user = "SELECT * FROM usertable  ORDER BY rand() LIMIT $j";
 //                 $user_result = $con->query($user);
 //                 if($user_result->num_rows > 0){
 //                     while ($user_row = $user_result->fetch_assoc()) {
 //                         $a = array('1','1.5','2','2.5','3','3.5','4','4.5','5');
-//                         $random_keys=array_rand($a,3);
+//                         $random_keys=array_rand($a,2);
 //                         $re = $a[$random_keys[0]];
 //                         $email = $user_row['email'];
-
+//                         $rating = $rating+$re;
 //                         $insert = "INSERT INTO `ratings`(`email`, `musiccode`, `ratenumber`) VALUES ('$email' ,'$musiccode' ,'$re')";
 //                         if($con->query($insert)){
-//                             echo $user_row['email'].$re.' '.$musiccode.'<br>';
+//                             $sql = "UPDATE `music` SET ratingcount = ratingcount+1 , rating = '$rating' WHERE `musiccode`='$musiccode' ";
+//                             if($con->query($sql)){
+//                                 echo 'success';
+//                             }
 
-//                 }
+//                         }
 
 
 //                     }

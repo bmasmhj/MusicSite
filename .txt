@@ -1,0 +1,9 @@
+ //recommendation
+ } 
+if(isset($_SESSION['musicusername'])){
+        $user='phil';
+        require 'model/recommendation.php' ;
+    }
+    else {
+        require 'model/featured.php' ;
+}
