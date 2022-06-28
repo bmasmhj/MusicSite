@@ -8,18 +8,9 @@ $password = $_SESSION['password'];
     $run_Sql = mysqli_query($con, $sql);
     if($run_Sql){
         $fetch_info = mysqli_fetch_assoc($run_Sql);
-        $status = $fetch_info['status'];
-        $code = $fetch_info['code'];
-        if($status == "verified"){
-            if($code != 0){
-                header('Location: ResetCode');
-            }else if($code == 0){
-                header('Location: ../Profile');
+        header('Location: ../Profile');
 
-            }
-        }else{
-            header('Location: UserOTP');
-        }
+
     }
 }
 
@@ -51,7 +42,6 @@ $password = $_SESSION['password'];
                     <div class="form-group">
                         <input class="form-control mb-2" type="password" name="password" placeholder="Password" required>
                     </div>
-                    <div class="link forget-pass text-left"><a href="ForgotPassword">Forgot password?</a></div>
                     <div class="form-group">
                         <input class="form-control mb-2 mt-2 button" type="submit" name="login" value="Login">
                     </div>

@@ -4,7 +4,7 @@
                
 
 <nav class="navbar container">
-  <a class="navbar-brand text-dark" href="../">Company Name</a>
+  <a class="navbar-brand text-dark" href="../">InfoSongs</a>
   <button type="button" class="btn btn-light text-dark"><a href="logout-user.php" class="text-dark">Logout</a></button>
 </nav>
         

@@ -41,10 +41,15 @@
                             }else{
                                 echo $randval['title'];
                             }
-                            
-                            
                             ?></h5>
-                        <p><?php echo $randval['artist']?></p>
+                                <p><?php
+                                if(strlen($randval['artist']) > 15) {
+                                        echo substr($randval['artist'],0,15).'..';
+                                    }else{
+                                        echo $randval['artist'];
+                                    }
+                                    ?>
+                            </p>
 
 
                             </div>

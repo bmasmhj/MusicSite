@@ -6,7 +6,7 @@
                 <a href="Home" class="topnav-logo">
                     <span class="text-white">
                         <!-- <img src="assets/images/logo-light.png" alt="" height="16"> -->
-                        Company Name
+                        InfoSongs
                     </span>
                     
                 </a>
