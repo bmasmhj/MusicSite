@@ -44,7 +44,9 @@ echo "</pre>";
 <div class="items" id="newmusic">
     <?php 
     $len = count($returned);
-    for($p= 0 ; $p < 10 ; $p++){ 
+    if($len>0){
+
+    for($p= 0 ; $p < $len ; $p++){ 
         $code = $returned[$p]; 
         $cresultsql = "SELECT  * FROM music WHERE musiccode = '$code'";
         $cresultresult = $con->query($cresultsql);
@@ -64,6 +66,8 @@ echo "</pre>";
             
         }
 
-    } ?>
+    } 
+}
+?>
 
 </div>

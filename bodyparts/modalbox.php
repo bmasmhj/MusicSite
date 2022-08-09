@@ -20,7 +20,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
             </div>
             <div class="modal-body text-center" id='ratinghere'>
-              <a href='javascript:void()' class="btn mx-5 btn-rounded btn-info">Login</a> <a href='javascript:void()' class="btn mx-5 btn-rounded btn-info">Sign Up</a>
+              <a href='Login' class="btn mx-5 btn-rounded btn-info">Login</a> <a href='SignupUser' class="btn mx-5 btn-rounded btn-info">Sign Up</a>
             </div>
         </div>
     </div>
@@ -34,7 +34,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-hidden="true"></button>
             </div>
             <div class="modal-body text-center" id='ratinghere'>
-              <a href='javascript:void()' class="btn mx-5 btn-rounded btn-info">Login</a> <a href='javascript:void()' class="btn mx-5 btn-rounded btn-info">Sign Up</a>
+              <a href='Login' class="btn mx-5 btn-rounded btn-info">Login</a> <a href='SignupUser' class="btn mx-5 btn-rounded btn-info">Sign Up</a>
             </div>
         </div>
     </div>

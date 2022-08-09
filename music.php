@@ -67,9 +67,11 @@ if(!isset($_GET['c'])){
                                 </a>
                         <?php } } ?>  
                         </div>
-                            <?php } 
-                       //recomendationhere
-                        
+                            <?php }
+                            
+                            if(isset($_SESSION['musicusername'])){
+                                require 'bodyparts/recommendation.php';                        
+                            }
                             ?>
                         </div>
                 <?php } } ?>
@@ -124,6 +126,7 @@ if(!isset($_GET['c'])){
                     var cmnt = $('#totalcomment').text();
                     var now = parseInt(cmnt) + 1;
                     $('#totalcomment').html(now);
+                    // alert(response);
                 }
             });
         }else{

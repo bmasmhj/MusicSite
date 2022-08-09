@@ -16,14 +16,14 @@ if($user_result->num_rows > 0){
         $rating_result = $con->query($rating);
         if($rating_result->num_rows > 0){
             while ($rating_row = $rating_result->fetch_assoc()) {
-                $r = $rating_row["title"];
+                $r = $rating_row["musiccode"];
                 $datasets[$username][$r] = $rating_row['ratenumber'];
             }
         }
     }
        
 }
-$users = $_SESSION['email'];
+$users = $_SESSION['musicusername'];
 $dataset = $datasets;
 $recommended_items = $re->getRecommendations($dataset, $users);
 $returned = array_keys($recommended_items);

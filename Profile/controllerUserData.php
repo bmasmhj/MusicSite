@@ -49,16 +49,11 @@ if(isset($_POST['signup'])){
             $fetch_pass = $fetch['password'];
             if(password_verify($password, $fetch_pass)){
                 $_SESSION['musicusername'] = $email;
-                $status = $fetch['status'];
-                if($status == 'verified'){
+               
                   $_SESSION['musicusername'] = $email;
                   $_SESSION['password'] = $password;
                     header('location: ../Profile');
-                }else{
-                    $info = "It's look like you haven't still verify your email - $email";
-                    $_SESSION['info'] = $info;
-                    header('location: UserOTP');
-                }
+              
             }else{
                 $errors['email'] = "Incorrect email or password!";
             }

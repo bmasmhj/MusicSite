@@ -36,9 +36,7 @@
   <div class="row">
     <div class="card">
       <div class="card-body">
-        <h4>Recommendation</h4>
-        <!-- recomedation  -->
-        
+        <?php require 'recommendation/recommendation.php'?>        
       </div>
     </div>
   </div>

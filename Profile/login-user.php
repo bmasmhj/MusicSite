@@ -20,6 +20,7 @@ $password = $_SESSION['password'];
     <div class="container mt-5">
         <div class="row">
             <div class="col-md-4 offset-md-4 mt-5 form card">
+                <a href="../"> <span class='mdi mdi-chevron-left'> << Home</span> </a>
                 <form action="Login" method="POST" autocomplete="">
                     <h2 class="text-center">Login</h2>
                     <p class="text-center">Login with your email and password.</p>
