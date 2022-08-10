@@ -2,7 +2,7 @@
 
 session_start();
 
-$featuredsql = "SELECT  * FROM music WHERE status = 1 ";
+$featuredsql = "SELECT  * FROM music WHERE status = 'featured' ";
 $featuredresult = $con->query($featuredsql);
 $featureddata = [];
     if ($featuredresult->num_rows > 0) {

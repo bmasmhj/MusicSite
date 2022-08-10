@@ -38,6 +38,9 @@ $returned = array_keys($recommended_items);
 <div class="items" id="newmusic">
     <?php 
     $len = count($returned);
+
+    if($len > 0 ){
+
     for($p= 0 ; $p < $len ; $p++){ 
         $code = $returned[$p]; 
         $cresultsql = "SELECT  * FROM music WHERE musiccode = '$code'";
@@ -58,6 +61,38 @@ $returned = array_keys($recommended_items);
             
         }
 
-    } ?>
+    } 
+}else {
+        foreach($randdata as $key => $randval){ ?>
+
+            <a class="iteam text-white" href="Mus?c=<?php echo $randval['musiccode'] ?>">
+                <img class="w-100 musicimg" src="<?php echo $randval['img']?>" alt="">
+                <div class="mx-2">
+                    <h5 class="p-0 text-white mt-1 m-0"><?php 
+                    
+                    if(strlen($randval['title']) > 15) {
+                        echo substr($randval['title'],0,15).'..';
+                    }else{
+                        echo $randval['title'];
+                    }
+                    ?></h5>
+                        <p><?php
+                        if(strlen($randval['artist']) > 15) {
+                                echo substr($randval['artist'],0,15).'..';
+                            }else{
+                                echo $randval['artist'];
+                            }
+                            ?>
+                    </p>
+
+
+                </div>
+            </a>
+    <?php
+}
+}
+    
+    
+    ?>
 
 </div>
