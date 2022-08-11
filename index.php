@@ -24,6 +24,7 @@
                         <?php } ?>
 
                    </div>
+                   
                    <?php 
                             if(isset($_SESSION['musicusername'])){
                                 require 'bodyparts/recommendation.php';                        
@@ -59,7 +60,7 @@
                                         </div>
                                     </a>
                         <?php } } ?>
-                        
+                    </div>
                 </div>
               <?php require 'sidebar.php' ?>
             </div>
