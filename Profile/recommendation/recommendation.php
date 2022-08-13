@@ -1,4 +1,12 @@
 <?php
+$usersz = $fetch_info['email'];
+
+
+$rating = "SELECT * FROM ratings WHERE email = '$usersz'";
+$rating_result = $con->query($rating);
+if($rating_result->num_rows > 0){
+    while ($rating_row = $rating_result->fetch_assoc()) {
+       
 
 require_once("recommend.php");
 // require_once("controller/sample_list.php");
@@ -7,7 +15,9 @@ $re = new Recommend();
 
 require 'connection.php';
 
-$user = "SELECT email FROM usertable";
+
+
+$user = "SELECT email FROM usertable  ";
 $user_result = $con->query($user);
 if($user_result->num_rows > 0){
     while ($user_row = $user_result->fetch_assoc()) {
@@ -19,13 +29,15 @@ if($user_result->num_rows > 0){
                 $r = $rating_row["musiccode"];
                 $datasets[$username][$r] = $rating_row['ratenumber'];
             }
-        }
+        }else {
+            $datasets[$username][''] = '' ;
     }
-       
 }
+}
+
 $users = $fetch_info['email'];
 
-echo "<pre>";
+// echo "<pre>";
 
 
 $dataset = $datasets;
@@ -34,7 +46,7 @@ $dataset = $datasets;
 
 $recommended_items = $re->getRecommendations($dataset, $users);
 $returned = array_keys($recommended_items);
-echo "</pre>";
+// echo "</pre>";
 
 
 ?>
@@ -68,6 +80,13 @@ echo "</pre>";
 
     } 
 }
+
+}
+}else {
+
+    
+}
+
 ?>
 
 </div>

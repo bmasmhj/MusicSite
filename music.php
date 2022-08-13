@@ -48,35 +48,60 @@ if(!isset($_GET['c'])){
                         </div>
                     </div>
                    <?php require 'bodyparts/gnre.php' ?>
-
                     <?php  if ($similarresult->num_rows > 1) { ?>
                         <header>
                             <h3 class="headingtag">  <?php echo $cresultdataval['artist']?>'s other Musics</h3>
                         </header>
                         <div class="items owl-carousel mb-3 "> 
-
-                        
-                        <?php foreach($similardata as $key => $similarval){ 
-                            if($similarval['musiccode'] != $cresultdataval['musiccode'] ) { ?>
-                                <a class="item text-white" href="Mus?c=<?php echo $similarval['musiccode'] ?>">
-                                <img class="w-100 musicimg" src="<?php echo $similarval['img']?>" alt="">
+                            <?php foreach($similardata as $key => $similarval){ 
+                                if($similarval['musiccode'] != $cresultdataval['musiccode'] ) { ?>
+                                    <a class="item text-white" href="Mus?c=<?php echo $similarval['musiccode'] ?>">
+                                    <img class="w-100 musicimg" src="<?php echo $similarval['img']?>" alt="">
+                                    <div class="mx-2">
+                                        <h5 class="p-0 text-white mt-1 m-0"><?php if(strlen($similarval['title']) > 18) { echo substr($similarval['title'],0,15).'..'; }else{ echo $similarval['title']; }?></h5>
+                                        <p><?php $artist = $similarval['artist']; if(strlen($artist) > 15) {  echo substr($artist,0,15).'..';}else{echo $artist; }?></p>
+                                    </div>
+                                    </a>
+                            <?php } } ?>  
+                        </div>
+                            <?php } 
+                if(isset($_SESSION['musicusername'])){
+                    require 'bodyparts/recommendation.php';                        
+                }else { 
+                        echo '<header>
+                                <h3 class="headingtag">Random Picks</h3>
+                            </header>';
+                        echo '
+                            <div class="items" id="newmusic">
+                        ';
+                        foreach($randdata as $key => $randval){
+                            echo '
+                            <a class="iteam text-white" href="Mus?c='.$randval['musiccode'] .'">
+                                <img class="w-100 musicimg" src="'.$randval['img'].'" alt="">
                                 <div class="mx-2">
-                                    <h5 class="p-0 text-white mt-1 m-0"><?php if(strlen($similarval['title']) > 18) { echo substr($similarval['title'],0,15).'..'; }else{ echo $similarval['title']; }?></h5>
-                                    <p><?php $artist = $similarval['artist']; if(strlen($artist) > 15) {  echo substr($artist,0,15).'..';}else{echo $artist; }?></p>
+                                    <h5 class="p-0 text-white mt-1 m-0">'; 
+                                    if(strlen($randval['title']) > 15) {
+                                        echo substr($randval['title'],0,15).'..';
+                                    }else{
+                                        echo $randval['title'];
+                                    }
+                                    echo '</h5> <p>';
+                                    if(strlen($randval['artist']) > 15) {
+                                            echo substr($randval['artist'],0,15).'..';
+                                        }else{
+                                            echo $randval['artist'];
+                                        }
+                                    echo ' </p>
+                                    </div>
+                                </a>';
+                                }
+                            echo '
                                 </div>
-                                </a>
-                        <?php } } ?>  
-                        </div>
-                            <?php }
-                            
-                            if(isset($_SESSION['musicusername'])){
-                                require 'bodyparts/recommendation.php';                        
-                            }
-                            ?>
-                        </div>
-                <?php } } ?>
-
-                <?php require 'sidebar.php' ?>
+                            ';
+                        } ?>
+                   
+                </div>
+                <?php require 'sidebar.php'; } } ?>
             </div>
         </div>
     </div>
